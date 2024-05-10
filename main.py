@@ -67,7 +67,7 @@ def plot_positions(
         mode='markers+text'
     ))
 
-    positions_plot.update_layout(height=220)
+    positions_plot.update_layout(height=220, title='Positions')
     return positions_plot
 
 def plot_scores(
@@ -95,6 +95,7 @@ def plot_scores(
     )
     fig = px.bar(
         scores_pd, x=conf.CANDIDATE, y=conf.SCORE, color=conf.VOTER,
+        title='Scores'
     )
     fig.update_traces(marker_line_color='white', marker_line_width=1)
     return fig
