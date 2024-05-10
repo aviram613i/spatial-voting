@@ -93,7 +93,11 @@ def plot_scores(
     scores_pd = ranks_pd.merge(
         scoring_rule_pd, left_on=conf.RANK, right_index=True
     )
-    return px.bar(scores_pd, x=conf.CANDIDATE, y=conf.SCORE, color=conf.VOTER)
+    fig = px.bar(
+        scores_pd, x=conf.CANDIDATE, y=conf.SCORE, color=conf.VOTER,
+    )
+    fig.update_traces(marker_line_color='white', marker_line_width=1)
+    return fig
 
 
 st.title('Spatial Voting')
